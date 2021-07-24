@@ -6,7 +6,7 @@ using namespace std;
 
 string sum(string str1, string str2)
 {
-    bool carry = false;
+    int carry = 0;
     string long_str, short_str;
     //같으면 str1이 long_str
     if (str1.size() < str2.size())
@@ -25,7 +25,7 @@ string sum(string str1, string str2)
     for (int i = 0; i < result.size(); i++)
     {
         int temp = carry;
-        carry = false;
+        carry = 0;
 
         if (i < str1.size())
         {
