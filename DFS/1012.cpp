@@ -65,37 +65,35 @@
 // }
 #include <iostream>
 #include <algorithm>
-
+#include <cstdio>
 using namespace std;
 using ii = pair<int, int>;
-bool visited[51][51] = {
+bool visited[52][52] = {
     false,
 };
-int map[51][51];
+int map[52][52];
 int dx[4] = {-1, 0, 1, 0};
 int dy[4] = {0, -1, 0, 1};
 int M, N, K;
 void dfs(ii cur)
 {
     visited[cur.first][cur.second] = true;
-    for (int i = 0; i < M; i++)
+
+    for (int k = 0; k < 4; k++)
     {
-        for (int j = 0; j < N; j++)
+        if (map[cur.first + dx[k]][cur.second + dy[k]] == 1)
         {
-            if (!map[i][j])
-                continue;
-            if (visited[i][j])
-                continue;
-            dfs(ii(i, j));
+            dfs(ii(cur.first + dx[k], cur.second + dy[k]));
+            cout << "dfs" << '\n';
         }
     }
 }
 int dfsAll()
 {
     int components = 0;
-    for (int i = 0; i < M; i++)
+    for (int i = 1; i <= M; i++)
     {
-        for (int j = 0; j < N; j++)
+        for (int j = 1; j <= N; j++)
         {
             if (!map[i][j])
             {
@@ -121,11 +119,13 @@ int main()
     {
         M, N, K = 0;
         cin >> M >> N >> K;
+        fill(&map[0][0], &map[52][52], 0);
+
         for (int i = 0; i < K; i++)
         {
             int a, b;
             cin >> a >> b;
-            map[a][b] = 1;
+            map[a + 1][b + 1] = 1;
         }
         cout << dfsAll() << '\n';
     }
