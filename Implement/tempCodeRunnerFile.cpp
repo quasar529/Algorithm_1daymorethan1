@@ -1,6 +1,8 @@
-for (int i = 0; i < str.length(); i++)
-    // {
-    //     cout << str[i] << ' ';
-    //     if (str[i] == ' ')
-    //         count++;
-    // }
+      // int tmp = 0;
+        // while (tmp < 26)
+        // {
+        //     cout << arr[tmp] << ' ';
+        //     if (tmp % 5 == 0)
+        //         cout << '\n';
+        //     tmp++;
+        // }
